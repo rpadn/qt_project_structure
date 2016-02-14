@@ -8,10 +8,7 @@ class tst_Class2: public QObject
     Q_OBJECT
 private slots:
     void notEmptyOnCreation();
-
     void classNotExportedMethod();
-
-    void classNotIncludedDirectly();
 };
 
 void tst_Class2::notEmptyOnCreation()

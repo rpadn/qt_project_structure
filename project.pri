@@ -15,7 +15,7 @@ defineReplace(libraryName) {
 }
 
 IDE_SOURCE_TREE = $$PWD
-IDE_BIN_PATH = $$IDE_SOURCE_TREE/bin
+IDE_BIN_PATH = $$IDE_SOURCE_TREE/bin/
 MODULES_DIR = $$IDE_SOURCE_TREE/src/
 
 !isEmpty(MODULE_DEPENDS) {

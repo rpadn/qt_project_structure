@@ -1,4 +1,6 @@
 *.[oa]
 *Makefile*
 *.moc
-
+*.dll
+*.log
+*.exe

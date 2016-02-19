@@ -18,8 +18,23 @@ IDE_SOURCE_TREE = $$PWD
 IDE_BIN_PATH = $$IDE_SOURCE_TREE/bin/
 MODULES_DIR = $$IDE_SOURCE_TREE/src/
 
-!isEmpty(MODULE_DEPENDS) {
+!isEmpty(MODULE_DEPENDS)|!isEmpty(TEST_DEPENDS) {
     LIBS *= -L$$IDE_BIN_PATH
+}
+
+done_tests =
+for(ever) {
+    isEmpty(TEST_DEPENDS): \
+        break()
+    done_tests += $$TEST_DEPENDS
+    for(dep, TEST_DEPENDS) {
+        include($$MODULES_DIR/$$dep/$${dep}_dependencies.pri)
+        LIBS *= -l$$libraryName($$MODULE_NAME)-static
+        INCLUDEPATH *= $$MODULES_DIR/$$dep/include/ \
+                       $$MODULES_DIR/$$dep/shared/
+    }
+    TEST_DEPENDS = $$unique(TEST_DEPENDS)
+    TEST_DEPENDS -= $$unique(done_tests)
 }
 
 # recursively resolve modules deps

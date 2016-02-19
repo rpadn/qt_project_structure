@@ -1,4 +1,4 @@
-MODULE_DEPENDS += module1
+TEST_DEPENDS += module1
 QT = core
 include(../../tests.pri)
 

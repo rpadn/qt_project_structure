@@ -10,6 +10,8 @@ exists($$depfile) {
 
 TARGET = $$MODULE_NAME
 
+CONFIG += static_and_shared build_all
+
 include(../project.pri)
 
 isEmpty(TARGET) {

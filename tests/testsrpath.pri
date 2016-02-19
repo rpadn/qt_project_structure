@@ -5,4 +5,3 @@ linux-* {
 } else:macx {
     QMAKE_LFLAGS += -Wl,-rpath,\"$$IDE_BIN_PATH/../\"
 }
-
